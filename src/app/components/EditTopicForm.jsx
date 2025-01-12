@@ -17,8 +17,8 @@ export default function EditTopicForm({ id, title, description }) {
 
     try {
       console.log("Updating topic with ID:", id);
-
-      const res = await fetch(`/api/topics/${id}`, {
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+      const res = await fetch(`${baseUrl}/api/topics/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
